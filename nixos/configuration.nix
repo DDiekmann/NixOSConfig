@@ -28,7 +28,7 @@
       wget
       zip
       unzip
-      git
+      gitprograms.hyprland.enable = true;programs.hyprland.enable = true;
       rsync
 
       # Misc
@@ -38,6 +38,10 @@
     sessionVariables = {
       NIXOS_OZONE_WL = "1";
     };
+  };
+
+  programs = {
+    hyprland.enable = true;
   };
 
   services = {
