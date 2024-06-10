@@ -7,7 +7,7 @@
     ./swaylock
     ./swaync
     ./wlogout
-    ./theme
+    ./phone
   ];
 
   foot_terminal.enable = lib.mkDefault true;
@@ -53,10 +53,10 @@
 
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input {
-        kb_layout = us
+        kb_layout = us, de
         kb_variant =
         kb_model =
-        kb_options =
+        kb_options = grp:win_space_toggle
         kb_rules =
 
         follow_mouse = 1
@@ -74,11 +74,8 @@
 
         gaps_in = 5
         gaps_out = 5
-        border_size = 2
-        col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-        col.inactive_border = rgba(595959aa)
 
-        layout = dwindle
+        layout = master
 
         # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
         allow_tearing = false
@@ -132,7 +129,8 @@
     gestures {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more
         workspace_swipe = on
-        workspace_swipe_fingers = 3
+        workspace_swipe_fingers = 4
+        workspace_swipe_distance = 100
     }
 
     misc {
@@ -147,11 +145,12 @@
     # windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
     # See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 
-
     # See https://wiki.hyprland.org/Configuring/Keywords/ for more
     $mainMod = SUPER
 
     # Basic
+    bindm = $mainMod, mouse:272, movewindow
+
     bind = $mainMod, T, exec, foot
     bind = $mainMod, K, killactive, 
     bind = $mainMod, V, togglefloating
@@ -173,9 +172,12 @@
     bind = $mainMod, O, exec, obsidian
     bind = $mainMod, C, exec, code
 
+    # Media
+    bindel = $mainMod, f3, exec, wpctl set-volume @DEFAULT_SINK@ 5%+
+    bindel = $mainMod, f2, exec, wpctl set-volume @DEFAULT_SINK@ 5%-
+    bindl = $mainMod, f1, exec, wpctl set-mute @DEFAULT_SINK@ toggle
+
     # Move focus with mainMod + arrow keys
-    bind = $mainMod, left, movefocus, l
-    bind = $mainMod, right, movefocus, r
     bind = $mainMod, up, movefocus, u
     bind = $mainMod, down, movefocus, d
 
@@ -190,6 +192,9 @@
     bind = $mainMod, 8, workspace, 8
     bind = $mainMod, 9, workspace, 9
     bind = $mainMod, 0, workspace, 10
+
+    bind = $mainMod, Left, workspace, -1
+    bind = $mainMod, Right, workspace, +1
 
     # Move active window to a workspace with mainMod + SHIFT + [0-9]
     bind = $mainMod SHIFT, 1, movetoworkspace, 1

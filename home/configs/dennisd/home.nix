@@ -18,7 +18,7 @@
     pkgs.yt-dlp
 
     pkgs.neofetch
-    
+
     (pkgs.writeShellScriptBin "my-up" ''
         sudo bash $HOME/Dev/NixOSConfig/scripts/updateConfig.sh
     '')
@@ -35,7 +35,7 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
   nixpkgs = {
     config = {
       allowUnfree = true;

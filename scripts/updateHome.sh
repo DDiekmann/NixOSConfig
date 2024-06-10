@@ -4,11 +4,11 @@ SCRIPT=$(realpath "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
 PS3='Please enter the user home system to update: '
-options=("dennisd" "private" "gaming" "Quit")
+options=("dennisd" "private" "gaming" "quit")
 
 select opt in "${options[@]}"; do
     case $opt in
-        "Quit")
+        "quit")
             break
             ;;
         *) 
