@@ -8,7 +8,7 @@
     };
 
     networking.firewall = {
-        allowedTCPPorts = [ 24642 ]; # Open port for Stardew Valley
-        allowedUDPPorts = [ ];
+        allowedTCPPorts = [ ]; # Open port for Stardew Valley
+        allowedUDPPorts = [ 24642 ];
     };
 }

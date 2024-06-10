@@ -28,7 +28,7 @@
       wget
       zip
       unzip
-      gitprograms.hyprland.enable = true;programs.hyprland.enable = true;
+      git
       rsync
 
       # Misc
@@ -58,6 +58,8 @@
     };
     blueman.enable = true;
     openssh.enable = true;
+    gvfs.enable = true;  
+    udisks2.enable = true;
   };
 
   networking = {
@@ -65,8 +67,14 @@
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     networkmanager.enable = true;
     firewall = {
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
+      allowedTCPPortRanges = [
+        {from = 1714; to = 1764; } # KDE Connect
+       ];
+      allowedUDPPortRanges = [
+        {from = 1714; to = 1764; } # KDE Connect
+       ];
+       allowedTCPPorts = [];
+        allowedUDPPorts = [];
     };
     # proxy = {
     #  default = "http://user:password@proxy:port/";
@@ -102,7 +110,7 @@
       fira-code-symbols
       font-awesome
       liberation_ttf
-      nerdfonts
+      (nerdfonts.override {fonts = ["JetBrainsMono"];})
       noto-fonts
       noto-fonts-emoji
       proggyfonts
