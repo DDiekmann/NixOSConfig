@@ -13,6 +13,9 @@
       enable = true;
       userName = "d";
       userEmail = "d.d@d.d";
+      extraConfig = {
+        init.defaultBranch = "main";
+      };
       aliases = {
         undo = "reset HEAD~1 --mixed";
         amend = "commit -a --amend";
